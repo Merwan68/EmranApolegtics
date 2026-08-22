@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emran Apologetics | ኢምራን አፖሎጂቲክስ</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Library for Scroll Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* Bright & Vibrant Color Palette */
+        :root {
+            --bg-light: #f8fafc;
+            --bg-card: #ffffff;
+            --primary-emerald: #059669;
+            --emerald-hover: #047857;
+            --accent-gold: #d97706;
+            --accent-gold-light: #fef3c7;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border-color: rgba(5, 150, 105, 0.15);
+            --shadow-soft: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            --shadow-hover: 0 20px 30px -10px rgba(5, 150, 105, 0.2);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans Ethiopic', 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Bright Gradient Background Pattern */
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at 10% 20%, rgba(5, 150, 105, 0.05) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(217, 119, 6, 0.05) 0%, transparent 40%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Header Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-emerald);
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .logo-container:hover .logo-img {
+            transform: rotate(360deg);
+        }
+
+        .logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-emerald);
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--primary-emerald);
+        }
+
+        .header-socials {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header-socials a {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--bg-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-socials a:hover {
+            color: #fff;
+            background: var(--primary-emerald);
+            transform: translateY(-4px) scale(1.1);
+        }
+
+        /* Bright Hero Section with Floating Animation */
+        .hero {
+            min-height: 100vh;
+            padding: 130px 5% 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 50%, #fef3c7 100%);
+            position: relative;
+        }
+
+        .hero-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-emerald);
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(5, 150, 105, 0.25);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero h1 span {
+            color: var(--primary-emerald);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 750px;
+            margin: 0 auto 35px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-emerald), #10b981);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(5, 150, 105, 0.3);
+            background: var(--emerald-hover);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            background: #ffffff;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-gold);
+            color: #ffffff;
+            transform: translateY(-5px);
+        }
+
+        /* Sections */
+        section {
+            padding: 90px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.3rem;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            margin-top: 10px;
+            font-size: 1.05rem;
+        }
+
+        /* Animated Cards (About Section) */
+        .about-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 950px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+        }
+
+        .about-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+
+        .about-card h3 {
+            color: var(--primary-emerald);
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .about-card p {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        /* Interactive Social Cards */
+        .social-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            max-width: 1050px;
+            margin: 0 auto 40px;
+        }
+
+        .social-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 30px 20px;
+            border-radius: 16px;
+            text-align: center;
+            transition: var(--transition);
+            text-decoration: none;
+            color: var(--text-dark);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .social-box i {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .social-box.tiktok i { color: #000; }
+        .social-box.youtube i { color: #ff0000; }
+        .social-box.telegram i { color: #0088cc; }
+
+        .social-box:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-emerald);
+        }
+
+        .social-box:hover i {
+            transform: scale(1.2) rotate(8deg);
+        }
+
+        /* Animated Video Grid (20 Cards) */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .video-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent-gold);
+        }
+
+        .video-thumb {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .video-thumb i {
+            font-size: 3.2rem;
+            color: var(--primary-emerald);
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .video-card:hover .video-thumb i {
+            transform: scale(1.25);
+            color: var(--accent-gold);
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-info h4 {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .video-info p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        /* Bright PDF Cards */
+        .pdf-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .pdf-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-emerald);
+            padding: 25px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+        }
+
+        .pdf-card:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .pdf-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .pdf-info i {
+            font-size: 2.2rem;
+            color: #ef4444;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            height: 220px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            border: 2px solid #fff;
+            transition: var(--transition);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.15);
+        }
+
+        /* Footer */
+        footer {
+            background: #ffffff;
+            border-top: 1px solid var(--border-color);
+            padding: 50px 5% 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <!-- Header Navigation -->
+    <header>
+        <a href="#" class="logo-container">
+            <img src="emru.jpg" alt="Emran Apologetics Logo" class="logo-img">
+            <span class="logo-text">Emran Apologetics</span>
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="#home">መነሻ</a></li>
+                <li><a href="#about">ስለ አፖሎጂቲክስ</a></li>
+                <li><a href="#videos">ቪዲዮዎች</a></li>
+                <li><a href="#pdf">መጻሕፍት (PDF)</a></li>
+                <li><a href="#gallery">ፎቶዎች</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-socials">
+            <a href="https://www.tiktok.com/@emranapologetics_?_r=1&_t=ZS-99695tQayJh" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://youtube.com/@emranapologetics?si=NsaHYy1L7P4YgHYc" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://t.me/emran_apologetics" target="_blank"><i class="fab fa-telegram"></i></a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <img src="emru.jpg" alt="Emran Apologetics Avatar" class="hero-avatar">
+            <h1>ኢምራን <span>አፖሎጂቲክስ</span></h1>
+            <p>የኢስላም ጥበባዊና አቅልን ያማከለ መከላከያ (Islamic Apologetics)፣ የንፅፅር ሃይማኖት ውይይቶች እና ሳይንሳዊ እንዲሁም ታሪካዊ ማስረጃዎች ማብራሪያ።</p>
+            <div class="btn-group">
+                <a href="https://t.me/emran_apologetics" class="btn btn-primary" target="_blank"><i class="fab fa-telegram"></i> ቴሌግራም ቻናል ይቀላቀሉ</a>
+                <a href="#videos" class="btn btn-outline"><i class="fas fa-play"></i> ትምህርቶችን ይመልከቱ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-title" data-aos="fade-up">
+            <h2>ስለ ሃይማኖት እና አፖሎጂቲክስ</h2>
+            <p>እውቀት፣ አቅል እና ምክንያታዊነት በኢስላም</p>
+        </div>
+        
+        <div class="about-card" data-aos="zoom-in" data-aos-duration="800">
+            <h3><i class="fas fa-book-quran"></i> አፖሎጂቲክስ (Apologetics) ምንድን ነው?</h3>
+            <p>
+                አፖሎጂቲክስ (Apologetics) ማለት በምክንያታዊነት፣ በሳይንሳዊ ግኝቶች፣ በታሪካዊ ማስረጃዎች እና በሥነ-መጎዝ (Logic) መርሆዎች ላይ በመመስረት የእምነትን እውነተኝነት ማስረደፅ እና የሚነሱ ጥያቄዎችን ወይም የውሸት ስሞችን መከላከል ማለት ነው።
+            </p>
+            <p>
+                በኢስላም አስተምህሮ ውስጥ ጥያቄዎችን መጠየቅ እና እውነታን በምክንያት መፈለግ የተከበረ ነው። ቅዱስ ቁርዓን በበርካታ አንቀጾቹ ላይ <i>"እውነተኞች ከሆነችሁ ማስረጃችሁን አምጡ"</i> (ሱረቱል በቀራህ: 111) በማለት ጥበብ እና ማስረጃን ያማከለ የውይይት ባህልን ያስተምረናል።
+            </p>
+            <h3><i class="fas fa-balance-scale"></i> ዓላማችን</h3>
+            <p>
+                የኢምራን አፖሎጂቲክስ (Emran Apologetics) ዋና ዓላማ የኢስላምን ጥልቅ አስተምህሮ ለሰዎች ማድረስ፣ ከሌሎች ሃይማኖት መምህራን እና ተከራካሪዎች ጋር በሰለጠነና በአክብሮት በተሞላ መልኩ የንፅፅር ሃይማኖት (Comparative Religion) ውይይቶችን ማድረግ፣ እንዲሁም በኢስላም ላይ የሚነሱ አሻሚ ጥያቄዎችን በተረጋገጡ ማስረጃዎች ምላሽ መስጠት ነው።
+            </p>
+        </div>
+    </section>
+
+    <!-- Social Links Grid -->
+    <section>
+        <div class="social-links-grid">
+            <a href="https://www.tiktok.com/@emranapologetics_?_r=1&_t=ZS-99695tQayJh" target="_blank" class="social-box tiktok" data-aos="fade-up" data-aos-delay="100">
+                <i class="fab fa-tiktok"></i>
+                <h3>TikTok Account</h3>
+                <p>አጫጭር የውይይትና የትምህርት ቪዲዮዎች</p>
+            </a>
+            <a href="https://youtube.com/@emranapologetics?si=NsaHYy1L7P4YgHYc" target="_blank" class="social-box youtube" data-aos="fade-up" data-aos-delay="200">
+                <i class="fab fa-youtube"></i>
+                <h3>YouTube Channel</h3>
+                <p>ሙሉ የክርክር እና የትምህርት ፕሮግራሞች</p>
+            </a>
+            <a href="https://t.me/emran_apologetics" target="_blank" class="social-box telegram" data-aos="fade-up" data-aos-delay="300">
+                <i class="fab fa-telegram"></i>
+                <h3>Telegram Channel</h3>
+                <p>PDF መጻሕፍት እና እለታዊ ማስታወሻዎች</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Videos Section (20 Videos Grid) -->
+    <section id="videos">
+        <div class="section-title" data-aos="fade-up">
+            <h2>የቪዲዮ ትምህርቶች እና ክርክሮች</h2>
+            <p>በኢምራን አፖሎጂቲክስ የቀረ0 የተመረጡ ቪዲዮዎች</p>
+        </div>
+
+        <div class="video-grid" id="videoContainer"></div>
+    </section>
+
+    <!-- PDF Section -->
+    <section id="pdf">
+        <div class="section-title" data-aos="fade-up">
+            <h2>የጥናት ጽሑፎች እና PDF መጻሕፍት</h2>
+            <p>ለጥናት የሚረዱ ነፃ የማጣቀሻ ሰነዶች</p>
+        </div>
+
+        <div class="pdf-grid">
+            <div class="pdf-card" data-aos="fade-right">
+                <div class="pdf-info">
+                    <i class="fas fa-file-pdf"></i>
+                    <div>
+                        <h4>መሰረታዊ የንፅፅር ሃይማኖት ማስታወሻ</h4>
+                        <small>PDF • 2.5 MB</small>
+                    </div>
+                </div>
+                <a href="https://t.me/emran_apologetics" target="_blank" class="btn btn-outline" style="padding: 8px 18px;"><i class="fas fa-download"></i> አውርድ</a>
+            </div>
+
+            <div class="pdf-card" data-aos="fade-up">
+                <div class="pdf-info">
+                    <i class="fas fa-file-pdf"></i>
+                    <div>
+                        <h4>በኢስላም ላይ ለሚነሱ ጥያቄዎች መልሶች</h4>
+                        <small>PDF • 4.1 MB</small>
+                    </div>
+                </div>
+                <a href="https://t.me/emran_apologetics" target="_blank" class="btn btn-outline" style="padding: 8px 18px;"><i class="fas fa-download"></i> አውርድ</a>
+            </div>
+
+            <div class="pdf-card" data-aos="fade-left">
+                <div class="pdf-info">
+                    <i class="fas fa-file-pdf"></i>
+                    <div>
+                        <h4>የአፖሎጂቲክስ መመሪያ እና የስነ-መጎዝ ሕጎች</h4>
+                        <small>PDF • 1.8 MB</small>
+                    </div>
+                </div>
+                <a href="https://t.me/emran_apologetics" target="_blank" class="btn btn-outline" style="padding: 8px 18px;"><i class="fas fa-download"></i> አውርድ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section id="gallery">
+        <div class="section-title" data-aos="fade-up">
+            <h2>የተወሰኑ ፎቶዎች</h2>
+            <p>የውይይቶች እና የትምህርት መድረኮች ምስሎች</p>
+        </div>
+
+        <div class="gallery-grid" id="galleryContainer"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h2 style="color: var(--primary-emerald); margin-bottom: 10px;">Emran Apologetics</h2>
+            <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 20px;">በእውቀት፣ በጥበብ እና በመልካም አቀራረብ እውነታን የማብራራት ጉዞ።</p>
+            <div class="header-socials" style="justify-content: center;">
+                <a href="https://www.tiktok.com/@emranapologetics_?_r=1&_t=ZS-99695tQayJh" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://youtube.com/@emranapologetics?si=NsaHYy1L7P4YgHYc" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://t.me/emran_apologetics" target="_blank"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Emran Apologetics. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- AOS Script for Animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Scroll Animations
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Generate 20 Animated Video Cards
+        const videoContainer = document.getElementById('videoContainer');
+        const videoTitles = [
+            "የንፅፅር ሃይማኖት ውይይት - ክፍል 1",
+            "ኢስላም እና ምክንያታዊነት (Reasoning in Islam)",
+            "የአፖሎጂቲክስ መግቢያ እና አስፈላጊነቱ",
+            "ከክርስቲያን መምህራን ጋር የተደረገ ክርክር",
+            "የቅዱስ ቁርዓን ሳይንሳዊ እና ታሪካዊ ዳራዎች",
+            "የነቢዩ ሙሐመድ (ሰ.ዐ.ወ) ነቢይነት ማስረጃዎች",
+            "በቁርዓን ላይ ለሚነሱ ጥያቄዎች ምላሽ",
+            "የተውሂድ (የአላህ አንድነት) ትርጉም እና ማብራሪያ",
+            "የብሉይ እና ሐዲስ ኪዳን ጥናት - ክፍል 1",
+            "የአምላክ ህልውና እና የፍልስፍና ጥያቄዎች",
+            "ክርስቲያናዊ Theology እና የኢስላም ምላሽ",
+            "የክርክር መድረክ - ክፍል 2",
+            "ስለ ሥላሴ ትምህርት የቀረበ ውይይት",
+            "የመጽሐፍ ቅዱስ ታሪካዊ ዳራ ጥናት",
+            "በቁርዓን ውስጥ ያሉ ትንቢቶች",
+            "የአፖሎጂቲክስ ስልቶች እና ስነ-ምግባር",
+            "የአምላክ አንድነት በሃይማኖቶች መካከል",
+            "የሰነድ እና የታሪክ ተአማኒነት በኢስላም",
+            "የሐዲስ ዘገባዎች ሳይንሳዊ ማጣሪያ (Hadith Studies)",
+            "የማጠቃለያ የጥያቄና መልስ መድረክ"
+        ];
+
+        for (let i = 1; i <= 20; i++) {
+            const videoCard = document.createElement('div');
+            videoCard.className = 'video-card';
+            videoCard.setAttribute('data-aos', 'fade-up');
+            videoCard.setAttribute('data-aos-delay', (i % 4) * 100);
+            videoCard.innerHTML = `
+                <div class="video-thumb">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <div class="video-info">
+                    <h4>${videoTitles[i-1]}</h4>
+                    <p>Emran Apologetics • ቪዲዮ #${i}</p>
+                    <a href="https://youtube.com/@emranapologetics?si=NsaHYy1L7P4YgHYc" target="_blank" style="color: var(--primary-emerald); text-decoration: none; font-size: 0.88rem; margin-top: 8px; display: inline-block; font-weight: 600;">ይመልከቱ <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            `;
+            videoContainer.appendChild(videoCard);
+        }
+
+        // Generate Gallery Items with Animations
+        const galleryContainer = document.getElementById('galleryContainer');
+        for (let i = 1; i <= 8; i++) {
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'gallery-item';
+            galleryItem.setAttribute('data-aos', 'zoom-in');
+            galleryItem.innerHTML = `<img src="1000071075.jpg" alt="Emran Apologetics Event ${i}">`;
+            galleryContainer.appendChild(galleryItem);
+        }
+    </script>
+</body>
+</html>
